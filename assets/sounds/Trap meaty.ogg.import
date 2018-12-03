@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Trap meaty.ogg-09b761abf7362379211e5ac11e671490.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Trap meaty.ogg"
+dest_files=[ "res://.import/Trap meaty.ogg-09b761abf7362379211e5ac11e671490.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

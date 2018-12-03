@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Baa1.ogg-f7ad4437031225a648fcfb50996f9cab.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Baa1.ogg"
+dest_files=[ "res://.import/Baa1.ogg-f7ad4437031225a648fcfb50996f9cab.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

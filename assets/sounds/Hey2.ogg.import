@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hey2.ogg-78e48c295f4a4624119b428a20d223f2.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Hey2.ogg"
+dest_files=[ "res://.import/Hey2.ogg-78e48c295f4a4624119b428a20d223f2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
