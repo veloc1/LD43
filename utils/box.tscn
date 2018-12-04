@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://utils/debug_draw_shape.gd" type="Script" id=1]
+
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+friction = 0.5
+rough = false
+bounce = 0.2
+absorbent = false
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 20 )
+
+[node name="box" type="RigidBody2D"]
+input_pickable = false
+collision_layer = 2
+collision_mask = 1
+mode = 0
+mass = 1.63
+physics_material_override = SubResource( 2 )
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="CollisionShape2D"]
+script = ExtResource( 1 )
+color = Color( 0.423529, 0.258824, 0.258824, 1 )
+

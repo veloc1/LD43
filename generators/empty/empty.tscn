@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://font.tres" type="DynamicFontData" id=2]
-[ext_resource path="res://trap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fence.tscn" type="PackedScene" id=4]
-[ext_resource path="res://peasant.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/bg/tree.png" type="Texture" id=6]
+[ext_resource path="res://objects/trap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/fence.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/bg/tree.png" type="Texture" id=5]
+[ext_resource path="res://objects/bird.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/hut.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -56,27 +57,42 @@ position = Vector2( 833.446, -10 )
 [node name="fence" parent="." instance=ExtResource( 4 )]
 position = Vector2( 590, -30 )
 
-[node name="peasant" parent="." instance=ExtResource( 5 )]
-position = Vector2( 140.433, -86.5815 )
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 191.332, -160.241 )
 scale = Vector2( 0.3, 0.3 )
-z_index = -1
+z_index = -2
 z_as_relative = false
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 1057.11, -148.283 )
 scale = Vector2( 0.3, 0.3 )
-z_index = -1
+z_index = -2
 z_as_relative = false
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 707.93, -100.45 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -2
+z_index = -3
 z_as_relative = false
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
+
+[node name="bird" parent="." instance=ExtResource( 6 )]
+position = Vector2( 321.976, -10.3291 )
+is_flying = false
+flying_height = 320
+
+[node name="bird2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 377.035, -10.04 )
+is_flying = false
+flying_height = 280
+
+[node name="bird3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 584.342, -69.9811 )
+is_flying = false
+flying_height = 240
+
+[node name="hut" parent="." instance=ExtResource( 7 )]
+position = Vector2( 162.881, -77.5624 )
 

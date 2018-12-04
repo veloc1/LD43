@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="LD43"
-run/main_scene="res://runner_test.tscn"
+run/main_scene="res://scenes/runner_test.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+game_state="*res://game_state.gd"
 
 [display]
 

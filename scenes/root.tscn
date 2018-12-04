@@ -1,0 +1,244 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/root.gd" type="Script" id=1]
+[ext_resource path="res://objects/floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://utils/debug_draw_shape.gd" type="Script" id=3]
+[ext_resource path="res://objects/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/trap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://font.tres" type="DynamicFontData" id=6]
+[ext_resource path="res://utils/baloon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/peasant.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/fence.tscn" type="PackedScene" id=9]
+[ext_resource path="res://utils/box.tscn" type="PackedScene" id=10]
+
+
+
+
+
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20.0739, 118.237 )
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 48
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 24
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 18
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "intro"
+length = 8.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gametitle:custom_colors/font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("press any key to start:custom_colors/font_color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("intro_camera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.00917, 2.5, 3, 6, 6.59922, 8 ),
+"transitions": PoolRealArray( 1, 1, -2, -2, 1, 1, -2, 1 ),
+"update": 0,
+"values": [ Vector2( 164.319, 486.127 ), Vector2( 164.319, 486.127 ), Vector2( 164.319, 486.127 ), Vector2( -738.174, 486.127 ), Vector2( -738.174, 486.127 ), Vector2( -738.174, 486.127 ), Vector2( -738.174, 486.127 ), Vector2( 167.627, 484.473 ) ]
+}
+
+[node name="root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="floor" parent="." instance=ExtResource( 2 )]
+
+[node name="wall" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -192.295, 432.863 )
+input_pickable = false
+collision_layer = 2
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+shape = SubResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="wall/CollisionShape2D"]
+script = ExtResource( 3 )
+color = Color( 0.462745, 0.423529, 0.113725, 1 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 115.457, 485.471 )
+
+[node name="trap" parent="." instance=ExtResource( 5 )]
+position = Vector2( 833.63, 538.673 )
+
+[node name="Gametitle" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 283.0
+margin_right = 313.0
+margin_bottom = 439.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Game title"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="press any key to start" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = 619.0
+margin_right = 643.0
+margin_bottom = 775.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "press space to start"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="jump_tut" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 584.0
+margin_top = 365.0
+margin_right = 1224.0
+margin_bottom = 521.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "press space to jump"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/intro = SubResource( 6 )
+blend_times = [  ]
+
+[node name="intro_camera" type="Camera2D" parent="."]
+position = Vector2( 164.319, 486.127 )
+offset = Vector2( 50, 0 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="baloon" parent="." instance=ExtResource( 7 )]
+position = Vector2( -774.832, 358.428 )
+text = "Hmm. We should sacrifice someone"
+
+[node name="peasant" parent="." instance=ExtResource( 8 )]
+position = Vector2( -871.516, 474.449 )
+
+[node name="fence" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1366.52, 509.227 )
+
+[node name="box" parent="." groups=[
+"boxes",
+] instance=ExtResource( 10 )]
+position = Vector2( 218.913, 465.021 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_intro_animation_finished"]

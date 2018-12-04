@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sheep Fail.ogg-ba5519fec83fd9e1c77c2b2b67bf5cf3.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Sheep Fail.ogg"
+dest_files=[ "res://.import/Sheep Fail.ogg-ba5519fec83fd9e1c77c2b2b67bf5cf3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
