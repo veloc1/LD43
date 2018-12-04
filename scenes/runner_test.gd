@@ -3,11 +3,14 @@ extends Node2D
 const MenuGenerator = preload("res://generators/menu.gd")
 const TutorialGenerator = preload("res://generators/tutorial.gd")
 const EmptyGenerator = preload("res://generators/empty.gd")
+const Level1Generator = preload("res://generators/level1.gd")
 
 const PeasantPointer = preload("res://objects/pointers/peasant.tscn")
 
 var generator = null
 var last_part_position = 0
+
+var is_win = false
 
 onready var player = $player
 onready var fader = $fader
@@ -17,7 +20,7 @@ onready var music_menu : AudioStreamPlayer = $music_menu
 
 func _ready():
 	change_generator(MenuGenerator.new())
-	# change_generator(EmptyGenerator.new())
+	#change_generator(Level1Generator.new())
 	create_part()
 	
 	player.connect("game_over", self, "on_game_over")
@@ -45,10 +48,14 @@ func change_generator_to_next_if_needed():
 			if not game_state.is_tutorial_showed:
 				new_gen = TutorialGenerator
 			else:
-				new_gen = EmptyGenerator
+				new_gen = Level1Generator
 		if generator.get_script() == TutorialGenerator:
 			game_state.is_tutorial_showed = true
-			new_gen = EmptyGenerator
+			new_gen = Level1Generator
+		if generator.get_script() == Level1Generator:
+			is_win = true
+			fader.fade_out()
+			new_gen = Level1Generator
 		change_generator(new_gen.new())
 
 func change_generator(new_generator):
@@ -127,7 +134,10 @@ func on_game_over():
 	fader.fade_out()
 
 func on_fade_out():
-	get_tree().change_scene("res://scenes/game_over.tscn")
+	if is_win:
+		get_tree().change_scene("res://scenes/win.tscn")
+	else:
+		get_tree().change_scene("res://scenes/game_over.tscn")
 
 func on_player_jump():
 	if music_menu.playing and generator.is_intro_done():

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://parallax.gd" type="Script" id=1]
+[ext_resource path="res://assets/bg/tree.png" type="Texture" id=2]
+[ext_resource path="res://rect_draw.gd" type="Script" id=3]
+
+[node name="ParallaxLayer" type="ParallaxLayer"]
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+script = ExtResource( 1 )
+color = null
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 475.813, 0 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource( 3 )
+color = Color( 0, 0, 0, 1 )
+y = 0.0
+

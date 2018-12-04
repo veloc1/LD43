@@ -6,7 +6,7 @@ const Vjump = 500
 const Acceleration : float = 1.0
  
 var velocity = Vector2()
-var max_velocity = 200
+var max_velocity = 250
 
 var is_jumping = false
 var is_on_floor = true
@@ -42,9 +42,6 @@ func _process(delta):
 		return
 	
 	if is_on_floor:
-		#if is_jumping:
-		#	sprite.play("run")
-			
 		velocity.y = 0
 		is_jumping = false
 		if velocity.x > 10:

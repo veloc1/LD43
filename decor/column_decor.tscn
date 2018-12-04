@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/bg/column.png" type="Texture" id=1]
+
+[node name="column_decor" type="Sprite"]
+position = Vector2( 0, -90 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+

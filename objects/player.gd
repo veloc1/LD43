@@ -56,8 +56,6 @@ func _process(delta):
 		dust.emitting = emit_dust
 		velocity += gravity
 		if is_idle and Input.is_action_just_pressed("jump"):
-			is_idle = false
-			is_movement_locked = false
 			emit_signal("jump")
 		return
 
@@ -149,3 +147,4 @@ func idle():
 func run():
 	sprite.play("run")
 	is_idle = false
+	is_movement_locked = false

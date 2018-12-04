@@ -18,10 +18,11 @@ func _on_trap_body_entered(body):
 	if body.has_method("lock_movement"):
 		timer.start()
 		player = body
-		player.lock_movement()
+		if player != null:
+			player.lock_movement()
 		
-		sound.play()
-		sprite.play()
+			sound.play()
+			sprite.play()
 
 func _on_Timer_timeout():
 	player.unlock_movement()

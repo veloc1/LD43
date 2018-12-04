@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://objects/floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/trap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/fence.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/bird.tscn" type="PackedScene" id=4]
+
+[node name="empty" type="Node2D"]
+
+[node name="floor" parent="." instance=ExtResource( 1 )]
+position = Vector2( 300, 100 )
+
+[node name="end" type="Node2D" parent="."]
+position = Vector2( 600, 0 )
+
+[node name="trap" parent="." instance=ExtResource( 2 )]
+position = Vector2( 166.556, -10 )
+
+[node name="fence" parent="." instance=ExtResource( 3 )]
+position = Vector2( 471.909, -30 )
+
+[node name="bird" parent="." instance=ExtResource( 4 )]
+position = Vector2( 427.763, -10.4333 )
+
+[node name="bird2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 460.536, -69.0467 )
+
