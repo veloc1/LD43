@@ -20,12 +20,14 @@ func add_random_decoration():
 		decor = Column.instance()
 	
 	add_child(decor)
-	decor.position.x += rand_range(-300, 300)
-	decor.position.y += rand_range(-140, -100)
 	
-	decor.z_index = -1
+	var y = rand_range(-140, -100)
+	decor.position.x += rand_range(-300, 300)
+	decor.position.y += y
+	
+	decor.z_index = y
 	decor.z_as_relative = false
 	
-	#var s = rand_range(-0.2, 0.2)
-	#decor.scale.x += s
-	#decor.scale.y += s
+	var s = rand_range(-0.1, 0.1)
+	decor.scale.x += decor.scale.x * s
+	decor.scale.y += decor.scale.y * s

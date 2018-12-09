@@ -19,8 +19,8 @@ onready var music = $music
 onready var music_menu : AudioStreamPlayer = $music_menu
 
 func _ready():
-	change_generator(MenuGenerator.new())
-	#change_generator(Level1Generator.new())
+	#change_generator(MenuGenerator.new())
+	change_generator(Level1Generator.new())
 	create_part()
 	
 	player.connect("game_over", self, "on_game_over")

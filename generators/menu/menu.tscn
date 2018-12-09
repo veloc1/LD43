@@ -74,15 +74,18 @@ position = Vector2( -589.103, 100 )
 [node name="floor2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 600, 100 )
 
+[node name="end" type="Node2D" parent="."]
+position = Vector2( 900, 0 )
+
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 141.0
-margin_top = 60.0
-margin_right = 331.0
-margin_bottom = 88.0
+margin_left = 143.0
+margin_top = 47.0
+margin_right = 333.0
+margin_bottom = 75.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -94,9 +97,6 @@ text = "press space to run"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="end" type="Node2D" parent="."]
-position = Vector2( 900, 0 )
 
 [node name="Label2" type="Label" parent="."]
 anchor_left = 0.0

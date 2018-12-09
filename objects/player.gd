@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal jump
 signal speedup
+signal slowdown
 signal game_over
 
 var Gravity = 0
@@ -9,6 +10,8 @@ var Gravity = 0
 const Vjump = 500
 const Acceleration : float = 1.0
 const SpeedUp : float = 2.0
+const SlowDown : float = -1.5
+const MinSpeed : float = 100.0
 const ExtraSpeedUp : float = 5.0
 
 const MousePositionToSlowDown : float = 60.0
@@ -33,6 +36,7 @@ onready var camera : Camera2D = $Camera2D
 onready var dust : Particles2D = $dust_particles
 onready var jump_timer : Timer = $jump_timer
 onready var speedup_timer : Timer = $speedup_timer
+onready var slowdown_timer : Timer = $slowdown_timer
 onready var extra_speedup_timer : Timer = $extra_speedup_timer
 
 onready var preloader : Node2D = $preloader
@@ -73,18 +77,23 @@ func _process(delta):
 		jump_timer.start()
 	if not Input.is_action_pressed("jump") and jump_timer.time_left > 0 and not is_jumping:
 		jump()
-	elif ((Input.is_action_pressed("jump") and jump_timer.time_left == 0) \
+	elif ((Input.is_action_pressed("jump") and jump_timer.time_left == 0 and is_touched_right()) \
 			or Input.is_action_pressed("speedup")) \
 			and speedup_timer.time_left == 0:
 		speedup_timer.start()
-		emit_signal("speedup")
+		emit_signal("slowdown")
+	elif ((Input.is_action_pressed("jump") and jump_timer.time_left == 0 and is_touched_left()) \
+			or Input.is_action_pressed("slowdown")) \
+			and slowdown_timer.time_left == 0:
+		slowdown_timer.start()
+		emit_signal("slowdown")
 
 	velocity += gravity
 
-	if get_local_mouse_position().x > MousePositionToSlowDown:
-		max_velocity = base_max_velocity + (get_local_mouse_position().x - MousePositionToSlowDown) / SpeedFromMousePositionCoef
-	else:
-		max_velocity = base_max_velocity - (MousePositionToSlowDown - get_local_mouse_position().x) / SpeedFromMousePositionCoef
+	#if get_local_mouse_position().x > MousePositionToSlowDown:
+	#	max_velocity = base_max_velocity + (get_local_mouse_position().x - MousePositionToSlowDown) / SpeedFromMousePositionCoef
+	#else:
+	#	max_velocity = base_max_velocity - (MousePositionToSlowDown - get_local_mouse_position().x) / SpeedFromMousePositionCoef
 
 	if velocity.x < max_velocity:
 		velocity.x += Acceleration
@@ -103,6 +112,10 @@ func _process(delta):
 
 	if speedup_timer.time_left > 0:
 		velocity.x += SpeedUp
+	
+	if slowdown_timer.time_left > 0:
+		if velocity.x > MinSpeed:
+			velocity.x += SlowDown
 
 	if extra_speedup_timer.time_left > 0:
 		velocity.x += ExtraSpeedUp
@@ -148,3 +161,9 @@ func run():
 	sprite.play("run")
 	is_idle = false
 	is_movement_locked = false
+
+func is_touched_left():
+	return get_local_mouse_position().x < 0
+
+func is_touched_right():
+	return get_local_mouse_position().x > 0
