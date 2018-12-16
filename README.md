@@ -1,5 +1,5 @@
 # LD43
 
-No gif for now
+[Link on itch.io](https://veloc1.itch.io/ld43)
 
-![large gif](3. birds.gif)
+![large gif](demo.gif)
