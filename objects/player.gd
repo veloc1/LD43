@@ -13,6 +13,7 @@ const SpeedUp : float = 2.0
 const SlowDown : float = -1.5
 const MinSpeed : float = 100.0
 const ExtraSpeedUp : float = 5.0
+const FenceSlowDown : float = 100.0
 
 const MousePositionToSlowDown : float = 60.0
 const SpeedFromMousePositionCoef : float = 3.0
@@ -81,7 +82,7 @@ func _process(delta):
 			or Input.is_action_pressed("speedup")) \
 			and speedup_timer.time_left == 0:
 		speedup_timer.start()
-		emit_signal("slowdown")
+		emit_signal("speedup")
 	elif ((Input.is_action_pressed("jump") and jump_timer.time_left == 0 and is_touched_left()) \
 			or Input.is_action_pressed("slowdown")) \
 			and slowdown_timer.time_left == 0:
@@ -167,3 +168,7 @@ func is_touched_left():
 
 func is_touched_right():
 	return get_local_mouse_position().x > 0
+
+func slowdown_on_fence():
+	if velocity.x > MinSpeed:
+		velocity.x -= FenceSlowDown

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shack.png-04d483c2d5fc8d71895d23c4d681f6bd.stex"
+path="res://.import/cloud2.png-f40dea0f42ba07f2ca47dc8335c3b0de.stex"
 
 [deps]
 
-source_file="res://assets/shack.png"
-dest_files=[ "res://.import/shack.png-04d483c2d5fc8d71895d23c4d681f6bd.stex" ]
+source_file="res://assets/cloud2.png"
+dest_files=[ "res://.import/cloud2.png-f40dea0f42ba07f2ca47dc8335c3b0de.stex" ]
 
 [params]
 

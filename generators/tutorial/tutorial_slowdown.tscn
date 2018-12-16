@@ -13,7 +13,7 @@ use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
 
-[node name="tutorial_speedup" type="Node2D"]
+[node name="tutorial_slowdown" type="Node2D"]
 
 [node name="floor" parent="." instance=ExtResource( 1 )]
 position = Vector2( 299.771, 100 )
@@ -32,7 +32,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="Node2D" type="Node2D" parent="CanvasLayer/root"]
 script = ExtResource( 2 )
-rect = Rect2( 300, 1, 340, 478 )
+rect = Rect2( 0, 1, 300, 478 )
 color = Color( 1, 1, 1, 1 )
 
 [node name="Label" type="Label" parent="CanvasLayer/root"]
@@ -40,10 +40,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 355.0
-margin_top = 205.0
-margin_right = 567.0
-margin_bottom = 233.0
+margin_left = 26.0
+margin_top = 184.0
+margin_right = 259.0
+margin_bottom = 243.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -51,7 +51,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "hold mouse to speedup"
+text = "hold mouse to slowdown
+"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

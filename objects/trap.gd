@@ -16,6 +16,9 @@ func _process(delta):
 
 func _on_trap_body_entered(body):
 	if body.has_method("lock_movement"):
+		if player != null:
+			player.unlock_movement()
+		
 		timer.start()
 		player = body
 		if player != null:
@@ -26,4 +29,5 @@ func _on_trap_body_entered(body):
 
 func _on_Timer_timeout():
 	player.unlock_movement()
+	player = null
 	queue_free()

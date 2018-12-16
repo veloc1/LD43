@@ -33,5 +33,8 @@ func on_player_jump():
 func on_player_speedup():
 	pass
 
+func on_player_slowdown():
+	pass
+
 func is_intro_done():
 	return true

@@ -23,5 +23,5 @@ position = Vector2( 101.473, -121.301 )
 position = Vector2( 165.758, -187.477 )
 
 [node name="trap" parent="." instance=ExtResource( 4 )]
-position = Vector2( 526.187, -10 )
+position = Vector2( 400, -10 )
 

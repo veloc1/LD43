@@ -17,11 +17,11 @@ position = Vector2( 600, 0 )
 position = Vector2( 166.556, -10 )
 
 [node name="fence" parent="." instance=ExtResource( 3 )]
-position = Vector2( 471.909, -30 )
+position = Vector2( 400, -30 )
 
 [node name="bird" parent="." instance=ExtResource( 4 )]
 position = Vector2( 427.763, -10.4333 )
 
 [node name="bird2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 460.536, -69.0467 )
+position = Vector2( 400.063, -69.6454 )
 

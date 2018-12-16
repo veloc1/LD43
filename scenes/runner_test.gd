@@ -19,8 +19,8 @@ onready var music = $music
 onready var music_menu : AudioStreamPlayer = $music_menu
 
 func _ready():
-	#change_generator(MenuGenerator.new())
-	change_generator(Level1Generator.new())
+	change_generator(MenuGenerator.new())
+	#change_generator(Level1Generator.new())
 	create_part()
 	
 	player.connect("game_over", self, "on_game_over")
@@ -68,6 +68,7 @@ func change_generator(new_generator):
 	
 	player.connect("jump", generator, "on_player_jump")
 	player.connect("speedup", generator, "on_player_speedup")
+	player.connect("slowdown", generator, "on_player_slowdown")
 
 func create_part():
 	var part = generator.make_part()

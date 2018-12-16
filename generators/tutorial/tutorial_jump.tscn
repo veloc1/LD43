@@ -3,7 +3,6 @@
 [ext_resource path="res://objects/floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://font.tres" type="DynamicFontData" id=2]
 
-
 [sub_resource type="DynamicFont" id=1]
 
 size = 16
@@ -34,7 +33,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "press space to jump"
+text = "press mouse to jump"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
